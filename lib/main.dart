@@ -1,4 +1,7 @@
+import 'package:change_app/home_screen.dart';
+import 'package:change_app/languages.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart'; // Import GetX package
 
 void main() => runApp(const MyApp());
 
@@ -7,13 +10,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Localization',
-
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Language Change App')),
-        body: const Center(child: Text('Change the language')),
-      ),
+      translations: Languages(),
+      locale: const Locale('en', 'US'), // Default locale
+      fallbackLocale: const Locale('en', 'US'), // Fallback locale
+      home: HomeScreen(),
     );
   }
 }
